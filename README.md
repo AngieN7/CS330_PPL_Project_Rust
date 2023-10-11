@@ -9,9 +9,13 @@ I plan to continue to learn about Rust by reading The Rust Programming Language,
 Rust is a compiled language, which means it needs a compiler to execute programs. Rust programs are compiled with rustc. Given Rust's relative newness, it does not come preinstalled on devices and has to be installed manually, and steps depend on whether you have Linux or Unix. I use Unix, so the steps to installation were relatively simple. **For instructions on installing Rust on Linux machines or alternative ways to install Rust click [here] (https://forge.rust-lang.org/infra/other-installation-methods.html#which)
 1. Open terminal
 2. Paste into terminal:
-''' $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh '''
-3. Check if installed correctly.
-'''$ rustc --version'''
+```
+$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+```
+4. Check if installed correctly.
+```
+$ rustc --version
+```
 Once the Rust language and compiler are installed, you can use IDE's that support Rust, like VSCode.
 **For instructions on VsCode install click [here](https://code.visualstudio.com/download) **
 * To use VSCode you will need to install rust-analyzer extension. [Here](https://code.visualstudio.com/docs/languages/rust)
@@ -21,32 +25,44 @@ Once the Rust language and compiler are installed, you can use IDE's that suppor
 3. Create a file for Rust that follows the Rust naming convention.
 * Rust naming convention is file.rs and in the event that there are multiple words in the file, the words should be separated by an underscore.
 ex.hello_world.rs
-''' cat >hello_world.rs'''
+```cat >hello_world.rs```
 4. Writing the program
 * Like many other programming languages, Rust programs must have a main function that runs first, followed by brackets that can accept parameters, and then curly brackets that surround the code of the function.
 *  To create a function, you have to first start with fn.
-'''
-fn main(){
+```
+ fn main(){
     println!("Hello, world!");
   }
-'''
+```
 5. Saving program: To exit text hit q 
 
 ## How to run  in the terminal
 1. Call rustc followed by file name
-   ''' rustc hello_world.rs '''
+   ```rustc hello_world.rs ```
 2. Then, you display the output.
-   ''' ./hello_world'''
+   ``` ./hello_world ```
 * Output will produce "Hello, world!" in the terminal.
 
 ### Adding Comments to C++ Code 
 To add comments to this code, use two forward slashes followed by the comment. 
 
-_ex //Commenting something_
+``` 
+// Example of one-line comment on and hello world program.
+fn main(){
+    println!("Hello, world!");
+  }
+```
 
 Or- in cases of multi-lined comments, you will use forward slash+star followed by the comment, another star, and another forward slash. 
 
-_ex. /*commenting something more extensive.*/_
+```
+/* Example of multi-line comment on
+hello world program. */
+fn main(){
+    println!("Hello, world!");
+  }
+
+```
 
 # PPL 2 Data Types and Naming Conventions
 Rust has most of the common data types, data types in Rust are integers, float numbers, characters,  Booleans, arrays and tuples.
@@ -67,39 +83,65 @@ Rust has most of the common data types, data types in Rust are integers, float n
 * Integer variables can be unsigned or signed.
 * Unsigned variables can only ever be positive.
 * Signed variable can be both negative and positive.
+* Default integer variable type is i32
+
+```
+//Example of integer variable that can be negative or positive
+let x: i32 = 52;
+
+//Example of integer variable that can only be positive
+let x: u32 = 52;
+```
 ### Floats
 * Represents numbers with decimals (rational numbers)
 * Has single and double precision float types represented by f32 and f64.
-* Double-precision floats are the default.
+* The default float type is f64 which is the Double-precision float type.
+```
+//Example of float variable syntax
+let y: f64 = 52.5;
+
+```
 ### Character
 * Rust supports more than just ASCII characters
 * Allows for special characters, emojis, and even characters in other languages.
+```
+//Example of char variable syntax
+let c: char = 'c';
+
+//Example of special character variable syntax
+let smile: char = '😄';
+
+```
 ### Booleans
 * Variables that have values that are true or false.
 * Can also be represented as integers 1, which means true, and 0, which is false.
+```
+//Example of float variable syntax
+ let t: bool = true; 
+```
 ### Tuples
 * Contains a group of values that can belong to different types
 * Once fixed length is declared, it is immutable even if you try and use mut
+```
+//Example of tuple variable syntax
+let u:(i32, f64, u64)=(52, 52.5, -18888)
+
+```
 ### Arrays
 * List containing values that are the same type.
 * Static but mutable; values can be updated in the array but not deleted when size is initialized.
-Data Type| Representation| Default Example 
---- | --- | --- | ---
-Int | Default int type is i32| let x: i32 = 52;
---- | --- | --- | ---
-Float  Default float type is f64 | let y: f64 = 52.5;
---- | --- | --- | ---
-Charecter| char| let c: char = 'c';
---- | --- | --- | ---
-Boolean | bool| let t: bool = true; 
---- | --- | --- | ---
-Tuple | ()| let u:(i32, f64, u64)=(52, 52.5, -18888)
---- | --- | --- | ---
-Array | []| let a = [1, 5, 28, 7];
+* Can declare array variables in many different ways.
+```
+//Array variable syntax option#1
+let a = [1, 5, 28, 7];
+
+//Array variable syntax option#2
+let a: [i32, 4] = [1, 5, 28, 7];
+
+```
 
 ## Operators
-* Both int and float allow for mathematical opporations; +, -, \*, \/, \**, \%
-* 
+* Both int and float allow for mathematical opporations;  +, -, \*, \/, \**, \%
 
 # PPL 3: Functions
 
