@@ -115,9 +115,12 @@ let smile: char = '😄';
 ### Booleans
 * Variables that have values that are true or false.
 * Can also be represented as integers 1, which means true, and 0, which is false.
+* Use logic operations:&& (And), | (or) , !(Not)
 ```
-//Example of float variable syntax
- let t: bool = true; 
+//Example of Bool variable syntax 
+ let t: bool = true;
+//Example of bool with operator
+ let f: bool = !t
 ```
 ### Tuples
 * Contains a group of values that can belong to different types
@@ -143,5 +146,15 @@ let a: [i32, 4] = [1, 5, 28, 7];
 ## Operators
 * Both int and float allow for mathematical opporations;  +, -, \*, \/, \**, \%
 
-# PPL 3: Functions
-
+# PPL 3: Loops and Functions
+* Rust offers three types of loops
+### Loops
+*Loops are labeled and
+* Keyword that allows code to be repeated until it is told to stop
+* Does not necissarily have to have conditions
+* Allows nested loops 
+* Ended by break condition.
+### While
+* Runs while a specific condition is met.
+### For Loops
+* Iterates through ranges, and list
