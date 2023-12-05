@@ -115,9 +115,12 @@ let smile: char = '😄';
 ### Booleans
 * Variables that have values that are true or false.
 * Can also be represented as integers 1, which means true, and 0, which is false.
+* Use logic operations:&& (And), || (or) , !(Not)
 ```
-//Example of float variable syntax
- let t: bool = true; 
+//Example of Bool variable syntax 
+ let t: bool = true;
+//Example of bool with operator
+ let f: bool = !t
 ```
 ### Tuples
 * Contains a group of values that can belong to different types
@@ -141,7 +144,96 @@ let a: [i32, 4] = [1, 5, 28, 7];
 ```
 
 ## Operators
-* Both int and float allow for mathematical opporations;  +, -, \*, \/, \**, \%
+* Both int and float allow for mathematical operations;  +, -, \*, \/, \**, \%
+# If/else
+* Rust used if/else statements similarly to other languages
+* They execute a code block based on a condition
+* They are treated as expressions that have to return the same type.
+* Unlike other languages, the condition does not need to be inside of the parenthesis
+* The condition must be a boolean because Rust will not convert nonbooleans to bools.
+  
+'''
+let w = 38
+if w>2{
+    print!("{} is bigger than 2", w);
+} else w<2 {
+    print!("{} is less than 2", w);
+}
+'''
 
-# PPL 3: Functions
+## Rust performs a different kind of short-circuiting 
+* It will go through all of the statements until it finds the True statement then, it won't bother checking the others.
+* For example, if an if statement is true and it is followed by an else if statement, Rust will not bother running the else if statement even if the else if statement is also true. 
+* This is similar to how traditional short-circuiting will not check the second condition of an or statement if the first condition is correct.
+* 
+'''
+let w = 6;
+
+    if w>2{
+        print!("{} is bigger than 2", w);
+    }
+    //This would not run since the previous conditional statement was true
+    else if w%2 == 0 {
+        println!("{} is even", w);
+    }
+'''
+### If let and let else
+
+# PPL 4: Loops and Functions
+* Rust offers three types of loops
+### Loops
+*Loops are labeled
+* Keyword that allows code to be repeated until it is told to stop.
+* Does not necessarily have to have conditions.
+* Allows nested loop.
+* Ended by break condition.
+* If there was a value that you want to return after the loop, add the variable after the break.
+### While
+* Runs while a specific condition is met.
+#### While Let
+### For Loops
+* For in is a constructor that uses various iterators
+* By default, for construction, uses into_iter on collections like list.
+* Collections can also be converted using functions iter() and iter_mut()
+#### For range
+* Can be used simply to iterate over ranges.
+* Represented by for n syntax, and n represents the values being iterated over
+* Uses a..b range notation, a is the start, b is where it ends
+* B is exclusive, so it will go through value up to b, but it would not include b.
+'''
+//this will print 1, 2, 3, 4, 5 will NOT print 6.
+for i in 1..6{
+    println!("{}", i);
+}
+'''
+## Functions
+* Denoted by fn declaration before the name
+* Function parameters must have type declaration.
+* Not all functions explicitly return.
+* Return types must be declared using an arrow after parameters, before the code block.
+* If they do not declare type, they still return something.
+* Functions that do not declare type and  have return expressions return '()'.
+
+
+### Nested Loops
+# PPL 5:Objects, Classes and Inheritance
+* Rust supports Structs
+## Structs
+* A group of key's and fields.
+* The keys act as variable names while the fields hold the type and values they accept.
+* Very similar to instance variables.
+*  First, you define the struct with key and type.
+*  Then, a struct instance is created that calls upon the struct and applies values to the keys.
+*  Dot notation is used to access the values of a struct and even change them if an instance of the struct is mutable 
+*  For keys to be mutable, the entire instance must be mutable
+### Structs as an Object
+* The structs act as objects, and their keys act as the things they should have.
+* Main then creates an instance of that struct, sending it values
+* Methods implement the struct and then do something with it's data.
+* Then, the main calls the method sending in the specific instances of the strcut.
+* Rust does not allow for multiple inheritance.
+## Enum
+
+## Standard methods 
+
 
