@@ -227,6 +227,7 @@ for i in 1..6{
 ```
 ## Functions
 Denoted by fn declaration before the name. Like variables, Function parameters must have type declaration. Not all functions explicitly return. Return types must be declared using an arrow after parameters, before the code block. If they do not declare type, they still return something. Functions that do not declare type and  have return expressions return '()'.
+
 '''rust 
 //Function that prints hello 
 fn main(){
