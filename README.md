@@ -6,7 +6,7 @@ Rust is relatively new, only first conceptualized in 2006 by Graydon Hoare, as a
 I plan to continue to learn about Rust by reading The Rust Programming Language, 2nd Edition By Steve Klabnik and Carol Nichols, referring to the official Rust language repo [here](https://github.com/rust-lang/book), and viewing the tutorials on Geeksforgeeks.org [here](https://www.geeksforgeeks.org/introduction-to-rust-programming-language/) and tutorialpoint.com [here](https://www.tutorialspoint.com/rust).  
 
 # Steps to installing Rust
-Rust is a compiled language, which means it needs a compiler to execute programs. Rust programs are compiled with rustc. Given Rust's relative newness, it does not come preinstalled on devices and has to be installed manually, and steps depend on whether you have Linux or Unix. I use Unix, so the steps to installation were relatively simple. **For instructions on installing Rust on Linux machines or alternative ways to install Rust click [here] (https://forge.rust-lang.org/infra/other-installation-methods.html#which)
+Rust is a compiled language, which means it needs a compiler to execute programs. Rust programs are compiled with rustc. Given Rust's relative newness, it does not come preinstalled on devices and has to be installed manually, and steps depend on whether you have Linux or Unix. I use Unix, so the steps to installation were relatively simple. _For instructions on installing Rust on Linux machines or alternative ways to install Rust click [here] (https://forge.rust-lang.org/infra/other-installation-methods.html#which)_
 1. Open terminal
 2. Paste into terminal:
 ```
@@ -38,11 +38,18 @@ ex.hello_world.rs
 
 # How to run  in the terminal
 1. Call rustc followed by file name
-   ```rustc hello_world.rs ```
-2. Then, you display the output.
-   ``` ./hello_world ```
-* Output will produce "Hello, world!" in the terminal.
+   ```
+   $ rustc hello_world.rs
 
+   ```
+3. Then, you display the output.
+   ```
+   $ ./hello_world
+   ```
+Output 
+```
+Hello, world!
+```
 
 ### Adding Comments to C++ Code 
 To add comments to this code, use two forward slashes followed by the comment. 
@@ -65,7 +72,7 @@ fn main(){
 
 ```
 # Data Types, Variable Syntex, Naming Conventions, and Reserved Words
-Rust has most of the common data types, data types in Rust are integers, float numbers, characters,  Booleans, arrays, and tuples. Rust is statically typed so the type declaration is needed before creating a variable, and those variables are bound to that type for their lifetimes. That said, if the variable type is not declared the compiler can often assume the variables type, and will compile 
+Rust has most of the common data types, data types in Rust are integers, float numbers, characters,  Booleans, arrays, and tuples. Rust is statically typed so the type declaration is needed before creating a variable, and those variables are bound to that type for their lifetimes. That said, if the variable type is not declared the compiler can often assume the variable type, and will compile 
 By default, variables in Rust are immutable, but the language does give users an option to create a mutable variable by placing mut in front of it. 
 
 ## Naming Conventions and Reserved Words
@@ -149,9 +156,39 @@ let a: [i32, 4] = [1, 5, 28, 7];
 ```
 
 ## Operators
-Both int and float allow for mathematical operations;  +, -, \*, \/, \**, \%
+| Arathmatic| Logical|
+| --- | --- |
+| +, -, \*, \/, \**, \%| &&(And), ||(or), !(Not) | 
+
+## Operation on Different types
+Rust allows arithmetic operations on relevant data types. This means that one variable may be a float, and another may be an int, and Rust typically calculates it without producing an error by turning the int into a float, except for a few rounding errors that can occur. This is only the case for arithmetic operators and their relevant data times, one would not be able to add a bool and a char. 
+```rust
+    //shows that arithmetic operations can be combined on different types
+    let sum=x+y;
+    let prod=x*y;
+    let diff=y-5;
+    let quo=y/5;
+
+    println!("Sum: {sum}, Product:{prod}, Differnce:{diff}, Quotient:{quo}");
+    
+```
+
+```rust
+ //This will cause an error
+ let nice:bool=true;
+ let not_nice=-1000;
+ println({nice+not_nice});
+    
+```
+Output 
+```
+Error
+```
+
+
 # If/Elses 
 Rust used if/else statements similarly to other languages, they execute a code block based on a condition. They are treated as expressions that have to return the same type. Unlike other languages, the condition does not need to be inside of the parenthesis. The condition must be a boolean because Rust will not convert non-booleans to bools.
+
 ```rust
 let w = 38
 if w>2{
@@ -160,9 +197,11 @@ if w>2{
     print!("{} is less than 2", w);
 }
 ```
+Output
+```
+38 is bigger than 2
 
-## Rust performs a different kind of short-circuiting 
-Rust will go through all of the statements until it finds the True statement then, it won't bother checking the others. For example, if an if statement is true and it is followed by an else if statement, Rust will not bother running the else if statement even if the else if statement is also true. This is similar to how traditional short-circuiting will not check the second condition of an or statement if the first condition is correct.
+```
 
 ```rust
 //Examples of typical Short-circuiting that is found in Rust and other languages
@@ -178,22 +217,12 @@ let j = 3
         println!("{} is even", w);
     }
 ```
-
-```rust
-//Examples of non-traditional Short-circuiting that is found in Rust
-let w = 6;
-
-    if w>2{
-        print!("{} is bigger than 2", w);
-    }
-    //This would not run since the previous conditional statement was true
-    else if w%2 == 0 {
-        println!("{} is even", w);
-    }
+Output
 ```
-
+wow
+```
 # PPL 4: Loops and Functions
-* Rust offers three types of loops
+* Rust offers three types of loops, loops, while loops, and for loops. 
 ### Loops
 Loops are labeled with the keyword "loop", and allow for code to be repeated until it is told to stop with the use of the work break. Loops in Rust do not have to have conditions, and can instead be a block of code that will repeatedly execute until told to break. Allows nested loop. If there was a value that you want to return after the loop, add the variable after the break.
 
@@ -202,10 +231,18 @@ Loops are labeled with the keyword "loop", and allow for code to be repeated unt
 loop{
 println("looptie-loop");
 }
+```
+Output 
+```
+looptie-loop
+looptie-loop
+looptie-loop
+looptie-loop
+looptie-loop
 
 ```
 ### While
-On the other hand, loops have to have a connection within them, and run when the specific condition is met.
+On the other hand, loops have to have a connection within them and run when the specific condition is met.
 ```rust
 let mut num = 0;
 let loopcon = 5;  
@@ -215,15 +252,28 @@ num+1;
 } 
 ```
 
+Output 
+```
+looptie-loop
+looptie-loop
+looptie-loop
+looptie-loop
+looptie-loop
+
+```
+
 ### For Loops
 For is a constructor that uses various iterators. By default, for construction, uses into_iter on collections like list. Collections can also be converted using functions iter() and iter_mut()
 #### For range
 Used simply to iterate over ranges. Uses a..b range notation, a is the start, and b is where it ends. B is exclusive, so it will go through value up to b, but it would not include b.
 ```rust
-//this will print 1, 2, 3, 4, 5 will NOT print 6.
 for i in 1..6{
     println!("{}", i);
 }
+```
+Output 
+```
+1, 2, 3, 4, 5
 ```
 ## Functions
 Denoted by fn declaration before the name. Like variables, Function parameters must have type declaration. Not all functions explicitly return. Return types must be declared using an arrow after parameters, before the code block. If they do not declare type, they still return something. Functions that do not declare type and  have return expressions return '()'.
@@ -239,7 +289,10 @@ sum(a, b);
 fn sum(a:int, b:int){
 println(a+b);
 }
-
+```
+Output 
+```
+5
 ```
 # PPL 5:Objects, Classes and Inheritance
 Rust supports Structs that act as objects within the language. Structs are a group of associated keys and fields, where the keys act as variable names while the fields hold the type and values they accept. In addition to not supporting objects, Rust does not support inheritance. Instead, Rust used Bound Parametric Polymorphism by using generics to abstract over different possible types and trait bounds to impose constraints on what those types must provide. With Bound Parametric Polymorphism, Rust can take the object-like type, struct, and uses implementation to access its data in a related function. 
