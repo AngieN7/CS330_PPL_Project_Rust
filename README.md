@@ -23,7 +23,7 @@ Once the Rust language and compiler are installed, you can use IDE's that suppor
 1. Open terminal
 2. Create a directory for rust code
 3. Create a file for Rust that follows the Rust naming convention.
-* Rust naming convention is file.rs and in the event that there are multiple words in the file, the words should be separated by an underscore.
+* Rust naming convention is file.rs and if there are multiple words in the file, the words should be separated by an underscore.
 ex.hello_world.rs
 ```cat >hello_world.rs```
 4. Writing the program
@@ -36,12 +36,13 @@ ex.hello_world.rs
 ```
 5. Saving program: To exit text hit q 
 
-## How to run  in the terminal
+# How to run  in the terminal
 1. Call rustc followed by file name
    ```rustc hello_world.rs ```
 2. Then, you display the output.
    ``` ./hello_world ```
 * Output will produce "Hello, world!" in the terminal.
+
 
 ### Adding Comments to C++ Code 
 To add comments to this code, use two forward slashes followed by the comment. 
@@ -57,21 +58,19 @@ Or- in cases of multi-lined comments, you will use forward slash+star followed b
 
 ```
 /* Example of multi-line comment on
-hello world program. */
+Hello World program. */
 fn main(){
     println!("Hello, world!");
   }
 
 ```
 
-# PPL 2 Data Types and Naming Conventions
-Rust has most of the common data types, data types in Rust are integers, float numbers, characters,  Booleans, arrays and tuples.
-* Statically typed, type declaration needed before the variable is created.
-* Variable is bound to their type at the time of declaration
-* However, if the type is not declared compiler can often correctly assume the variable's type
-* Variables in Rust are immutable by default.
-* However, you can specify whether or not you'd like the variable to be mutable by adding mut before the variable name.
-## Variable conventions
+# Data Types and Naming Conventions
+Rust has most of the common data types, data types in Rust are integers, float numbers, characters,  Booleans, arrays, and tuples. Rust is statically typed so the type declaration is needed before creating a variable, and those variables are bound to that type for their lifetimes. That said,if variable type is not declared the compiler can often assume the variables type, and will compile 
+By default, variables in Rust are immutable, but the language does give users an option to create a mutable variable by placing mut in front of it. 
+Naming conventions for Rust variables are 
+
+## Variable Declaration Syntax
 1. Start with let
 2. Add variable name, followed by :
 3. Declare type followed by =
@@ -102,8 +101,7 @@ let y: f64 = 52.5;
 
 ```
 ### Character
-* Rust supports more than just ASCII characters
-* Allows for special characters, emojis, and even characters in other languages.
+Rust supports more than just ASCII characters, it allows for special characters, emojis, and even characters in other languages.
 ```
 //Example of char variable syntax
 let c: char = 'c';
@@ -113,9 +111,7 @@ let smile: char = '😄';
 
 ```
 ### Booleans
-* Variables that have values that are true or false.
-* Can also be represented as integers 1, which means true, and 0, which is false.
-* Use logic operations:&& (And), || (or) , !(Not)
+Boolean-type variables are variables that have values that are true or false. They can also be represented as integers 1, which means true, and 0, which is false. They use logic operations: && (And), || (or) , !(Not)
 ```
 //Example of Bool variable syntax 
  let t: bool = true;
@@ -123,34 +119,25 @@ let smile: char = '😄';
  let f: bool = !t
 ```
 ### Tuples
-* Contains a group of values that can belong to different types
-* Once fixed length is declared, it is immutable even if you try and use mut
+A data type that contains a group of values that can belong to different types. Once a fixed length is declared, it is immutable even if you try and use mut
 ```
 //Example of tuple variable syntax
 let u:(i32, f64, u64)=(52, 52.5, -18888)
-
 ```
 ### Arrays
-* List containing values that are the same type.
-* Static but mutable; values can be updated in the array but not deleted when size is initialized.
-* Can declare array variables in many different ways.
+Arrays are lists containing values that are the same type. They are static but mutable; values can be updated in the array but not deleted when the size is initialized, and they can declared in many different ways.
 ```
 //Array variable syntax option#1
 let a = [1, 5, 28, 7];
-
 //Array variable syntax option#2
 let a: [i32, 4] = [1, 5, 28, 7];
 
 ```
 
 ## Operators
-* Both int and float allow for mathematical operations;  +, -, \*, \/, \**, \%
+Both int and float allow for mathematical operations;  +, -, \*, \/, \**, \%
 # If/Elses 
-* Rust used if/else statements similarly to other languages
-* They execute a code block based on a condition
-* They are treated as expressions that have to return the same type.
-* Unlike other languages, the condition does not need to be inside of the parenthesis
-* The condition must be a boolean because Rust will not convert nonbooleans to bools.
+Rust used if/else statements similarly to other languages, they execute a code block based on a condition. They are treated as expressions that have to return the same type. Unlike other languages, the condition does not need to be inside of the parenthesis. The condition must be a boolean because Rust will not convert non-booleans to bools.
 ```
 let w = 38
 if w>2{
