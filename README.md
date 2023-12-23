@@ -64,8 +64,7 @@ fn main(){
   }
 
 ```
-
-# Data Types and Naming Conventions
+# Data Types, Variable Syntex, Naming Conventions, and Reserved Words
 Rust has most of the common data types, data types in Rust are integers, float numbers, characters,  Booleans, arrays, and tuples. Rust is statically typed so the type declaration is needed before creating a variable, and those variables are bound to that type for their lifetimes. That said,if variable type is not declared the compiler can often assume the variables type, and will compile 
 By default, variables in Rust are immutable, but the language does give users an option to create a mutable variable by placing mut in front of it. 
 Naming conventions for Rust variables are 
@@ -75,8 +74,15 @@ Naming conventions for Rust variables are
 2. Add variable name, followed by :
 3. Declare type followed by =
 4. Finally, add a variable.
-## Constants
+## Naming Conventions and Reserved Words
+Rust has a few catagories for their reserved words. There are words that are stictly reserved and cannot be used as varible names, then there are words where it is best practice for them not to be used but they may still be used 
 
+## Data Types
+## Constants
+Rust has a nonstrict naming convention for it's variables, except Constant type variables. It is recommended that all constant type variables be named in all caps so that people know that they aren't just immutable, they can't be reinitialized to a differnet type. 
+'''r
+//This would result in an error.
+'''
 ### Integers
 * Represents whole numbers.
 * Integer variables can be unsigned or signed.
@@ -84,7 +90,7 @@ Naming conventions for Rust variables are
 * Signed variable can be both negative and positive.
 * Default integer variable type is i32
 
-```
+```rust
 //Example of integer variable that can be negative or positive
 let x: i32 = 52;
 
