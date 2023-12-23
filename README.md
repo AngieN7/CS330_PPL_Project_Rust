@@ -2,7 +2,7 @@
 
 # Intro and History
 I chose Rust as my programming language for CS330 PPL project due to its memory safety and speed. 
-Rust is relatively new, only first conceptualized in 2006 by Graydon Hoare, as a personal project with the goals of combatting memory bugs that are common in languages like C. It was later released in 2010, and it's an open-source language, so it is constantly developing. Like C, Rust is a multi-purpose language that allows programmers to get close to operating systems, it is often used for operating systems and embedded systems, it is also used for GUI and software development.
+Rust is relatively new, only first conceptualized in 2006 by Graydon Hoare, as a personal project with the goal of combatting memory bugs that are common in languages like C. It was later released in 2010, and it's an open-source language, so it is constantly developing. Like C, Rust is a multi-purpose language that allows programmers to get close to operating systems, it is often used for operating systems and embedded systems, it is also used for GUI and software development.
 I plan to continue to learn about Rust by reading The Rust Programming Language, 2nd Edition By Steve Klabnik and Carol Nichols, referring to the official Rust language repo [here](https://github.com/rust-lang/book), and viewing the tutorials on Geeksforgeeks.org [here](https://www.geeksforgeeks.org/introduction-to-rust-programming-language/) and tutorialpoint.com [here](https://www.tutorialspoint.com/rust).  
 
 # Steps to installing Rust
@@ -65,30 +65,32 @@ fn main(){
 
 ```
 # Data Types, Variable Syntex, Naming Conventions, and Reserved Words
-Rust has most of the common data types, data types in Rust are integers, float numbers, characters,  Booleans, arrays, and tuples. Rust is statically typed so the type declaration is needed before creating a variable, and those variables are bound to that type for their lifetimes. That said,if variable type is not declared the compiler can often assume the variables type, and will compile 
+Rust has most of the common data types, data types in Rust are integers, float numbers, characters,  Booleans, arrays, and tuples. Rust is statically typed so the type declaration is needed before creating a variable, and those variables are bound to that type for their lifetimes. That said, if the variable type is not declared the compiler can often assume the variables type, and will compile 
 By default, variables in Rust are immutable, but the language does give users an option to create a mutable variable by placing mut in front of it. 
-Naming conventions for Rust variables are 
 
-## Variable Declaration Syntax
+## Naming Conventions and Reserved Words
+Rust variable names are typically lowercase, and when they have two parts it's best practice to use snakecase. Rust has a few categories for their reserved words, these words cannot be used as variable names. Reserve words fall under three categories, reserved and in use, reserved for future use, and weakly reserved keywords.
+
+**Reserved and in use:** types that can be called and used in current instances of Rust, 
+
+**Reserved for future use**:Types that will likely be introduced in future versions of Rust, and are already in use in many other languages, 
+
+**Weak keywords**: These reserved words are reserved based on context, but it is still best practice not to use them in your variable names. 
+
+| Reservation Type | Reserved Words |
+| --- | --- |
+| **Strict and in use** | as, break, const, continue, crate, else, enum, extern, false, fn, for, if, impl, in, let,loop, match, mod, move, mut, pub, ref, return, self, Self, static, struct, super, trait, true, type, try, unsafe, use, where, while |
+|**Strict for future use** | abstract, become, box, do, final, macro, override, priv, typeof, unsized, virtual, yield |
+| **Weak keywords** | macro_rules, union, 'static, dyn |
+
+
+
+## Data Types and Variable Declaration Syntax
 1. Start with let
 2. Add variable name, followed by :
 3. Declare type followed by =
 4. Finally, add a variable.
-## Naming Conventions and Reserved Words
-Rust has a few categories for their reserved words. Some words are strictly reserved and cannot be used as variable names, and then there are words where it is best practice for them not to be used but they may still be used 
-| Reservation Type | Reserved Words |
-| --- | --- |
-| **Strict and in use** | as, break, const, continue, crate, else, enum, extern, false, fn, for, if, impl, in, let,loop, match, mod, move, mut, pub, ref, return, self, Self, static, struct, super, trait, true, type, try, unsafe, use, where, while |
-|**Strict for future use** | abstract, become, box, do, final, macro, override, '''priv''', typeof, unsized, virtual, yield |
-| **Weak keywords** | macro_rules, union, 'static, dyn |
-
-
-## Data Types
-## Constants
-Rust has a nonstrict naming convention for it's variables, except Constant type variables. It is recommended that all constant type variables be named in all caps so that people know that they aren't just immutable, they can't be reinitialized to a differnet type. 
-'''rust
-//This would result in an error.
-'''
+   
 ### Integers
 * Represents whole numbers.
 * Integer variables can be unsigned or signed.
@@ -160,11 +162,25 @@ if w>2{
 ```
 
 ## Rust performs a different kind of short-circuiting 
-* It will go through all of the statements until it finds the True statement then, it won't bother checking the others.
-* For example, if an if statement is true and it is followed by an else if statement, Rust will not bother running the else if statement even if the else if statement is also true. 
-* This is similar to how traditional short-circuiting will not check the second condition of an or statement if the first condition is correct.
-* 
+Rust will go through all of the statements until it finds the True statement then, it won't bother checking the others. For example, if an if statement is true and it is followed by an else if statement, Rust will not bother running the else if statement even if the else if statement is also true. This is similar to how traditional short-circuiting will not check the second condition of an or statement if the first condition is correct.
+
 ```rust
+//Examples of typical Short-circuiting that is found in Rust and other languages
+let w = 6;
+let j = 3
+    //doesn't bother to check the second condition since it knows the first is true, and only one of the two has to be true for it to be true
+    if w>2 or j % 5==0{
+        print!("wow");
+    }
+
+    //This would not run since the first statement is false, and both statements since **and** are used.
+    if w == 0 and j ==3 {
+        println!("{} is even", w);
+    }
+```
+
+```rust
+//Examples of non-traditional Short-circuiting that is found in Rust
 let w = 6;
 
     if w>2{
@@ -179,26 +195,30 @@ let w = 6;
 # PPL 4: Loops and Functions
 * Rust offers three types of loops
 ### Loops
-*Loops are labeled with the keyword "loop", and allow for code to be repeated until it is told to stop with the use of the work break. Loops in Rust do not have to have conditions, and can instead be a block of code that will repeatedly execute until told to break. Allows nested loop. If there was a value that you want to return after the loop, add the variable after the break.
+Loops are labeled with the keyword "loop", and allow for code to be repeated until it is told to stop with the use of the work break. Loops in Rust do not have to have conditions, and can instead be a block of code that will repeatedly execute until told to break. Allows nested loop. If there was a value that you want to return after the loop, add the variable after the break.
 
 ```rust
+//this will loop infinitely since there is no break statement or loop condition.
+loop{
+println("looptie-loop");
+}
 
 ```
 ### While
-On the other hand, while loops have to have a conidtion within them, and run when the specific condition is met.
+On the other hand, loops have to have a connection within them, and run when the specific condition is met.
 ```rust
+let mut num = 0;
+let loopcon = 5;  
+while num >=loopcon{
+println("looptie-loop");
+num+1;
+} 
 ```
-#### While Let
 
 ### For Loops
-* For in is a constructor that uses various iterators
-* By default, for construction, uses into_iter on collections like list.
-* Collections can also be converted using functions iter() and iter_mut()
+For is a constructor that uses various iterators. By default, for construction, uses into_iter on collections like list. Collections can also be converted using functions iter() and iter_mut()
 #### For range
-* Can be used simply to iterate over ranges.
-* Represented by for n syntax, and n represents the values being iterated over
-* Uses a..b range notation, a is the start, b is where it ends
-* B is exclusive, so it will go through value up to b, but it would not include b.
+Used simply to iterate over ranges. Uses a..b range notation, a is the start, and b is where it ends. B is exclusive, so it will go through value up to b, but it would not include b.
 ```rust
 //this will print 1, 2, 3, 4, 5 will NOT print 6.
 for i in 1..6{
@@ -206,29 +226,48 @@ for i in 1..6{
 }
 ```
 ## Functions
-Denoted by fn declaration before the name
-* Function parameters must have type declaration.
-* Not all functions explicitly return.
-* Return types must be declared using an arrow after parameters, before the code block.
-* If they do not declare type, they still return something.
-* Functions that do not declare type and  have return expressions return '()'.
+Denoted by fn declaration before the name. Like variables, Function parameters must have type declaration. Not all functions explicitly return. Return types must be declared using an arrow after parameters, before the code block. If they do not declare type, they still return something. Functions that do not declare type and  have return expressions return '()'.
+'''rust 
+//Function that prints hello 
+fn main(){
+let a = 2;
+let b = 3;
+sum(a, b);
+}
 
+fn sum(a:int, b:int){
+println(a+b);
+}
+
+'''
 # PPL 5:Objects, Classes and Inheritance
-Rust supports Structs which act as objects within the language. Structs are a group of associated key's and fields, where the keys act as variable names while the fields hold the type and values they accept.
-### How to Declare a struct
-// First, you define the struct with key and type.
-// Then, a struct instance is created that calls upon the struct and applies values to the keys.
-// Dot notation is used to access the values of a struct and even change them if an instance of the struct is mutable 
-*  For keys to be mutable, the entire instance must be mutable
+Rust supports Structs that act as objects within the language. Structs are a group of associated keys and fields, where the keys act as variable names while the fields hold the type and values they accept. In addition to not supporting objects, Rust does not support inheritance. Instead, Rust used Bound Parametric Polymorphism by using generics to abstract over different possible types and trait bounds to impose constraints on what those types must provide. With Bound Parametric Polymorphism, Rust can take the object-like type, struct, and uses implementation to access its data in a related function. 
+
 ### Structs as an Object
-* The structs act as objects, and their keys act as the things they should have.
-* Main then creates an instance of that struct, sending it values
-* Methods implement the struct and then do something with its data.
-* Then, the main calls the method sending in the specific instances of the struct.
-* Rust does not allow for multiple inheritance.
+The structs act as objects, and their keys act as the things they should have. Main then creates an instance of that struct, sending it values. Methods implement the struct and then do something with its data.
+
 ```rust
+pub struct Contact{
+    name: String,
+    cell number: int,
+    email: string
+}
+impl Contact {
+    pub fn get_name(&self) {
+        println("Name;{}", self.name);
+        }
+    }
+}
+fn main {
+let my_contact = Contact {
+        name: Rusty,
+        cell number: 1112223333,
+        email: String::from("rusty@gmail.com")
+   };
+}
+
 ```
 
-## Standard methods 
+
 
 
