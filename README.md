@@ -228,7 +228,7 @@ for i in 1..6{
 ## Functions
 Denoted by fn declaration before the name. Like variables, Function parameters must have type declaration. Not all functions explicitly return. Return types must be declared using an arrow after parameters, before the code block. If they do not declare type, they still return something. Functions that do not declare type and  have return expressions return '()'.
 
-'''rust 
+```rust 
 //Function that prints hello 
 fn main(){
 let a = 2;
@@ -240,7 +240,7 @@ fn sum(a:int, b:int){
 println(a+b);
 }
 
-'''
+```
 # PPL 5:Objects, Classes and Inheritance
 Rust supports Structs that act as objects within the language. Structs are a group of associated keys and fields, where the keys act as variable names while the fields hold the type and values they accept. In addition to not supporting objects, Rust does not support inheritance. Instead, Rust used Bound Parametric Polymorphism by using generics to abstract over different possible types and trait bounds to impose constraints on what those types must provide. With Bound Parametric Polymorphism, Rust can take the object-like type, struct, and uses implementation to access its data in a related function. 
 
