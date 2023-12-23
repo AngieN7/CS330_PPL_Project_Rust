@@ -76,9 +76,10 @@ Naming conventions for Rust variables are
 4. Finally, add a variable.
 ## Naming Conventions and Reserved Words
 Rust has a few categories for their reserved words. Some words are strictly reserved and cannot be used as variable names, and then there are words where it is best practice for them not to be used but they may still be used 
-**Strict and in use**: as, break, const, continue, crate, else, enum, extern, false, fn, for, if, impl, in, let,loop, match, mod, move, mut, pub, ref, return, self, Self, static, struct, super, trait, true, type, try, unsafe, use, where, while
-**Strict for future use**:abstract, become, box, do, final, macro, override, '''priv''', typeof, unsized, virtual, yield
-**Weak keywords**: macro_rules, union, 'static, dyn
+| --- | --- |
+| **Strict and in use** | as, break, const, continue, crate, else, enum, extern, false, fn, for, if, impl, in, let,loop, match, mod, move, mut, pub, ref, return, self, Self, static, struct, super, trait, true, type, try, unsafe, use, where, while |
+|**Strict for future use** | abstract, become, box, do, final, macro, override, '''priv''', typeof, unsized, virtual, yield |
+| **Weak keywords** | macro_rules, union, 'static, dyn |
 
 
 ## Data Types
