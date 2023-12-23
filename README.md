@@ -47,7 +47,7 @@ ex.hello_world.rs
 ### Adding Comments to C++ Code 
 To add comments to this code, use two forward slashes followed by the comment. 
 
-``` 
+```rust 
 // Example of one-line comment on and hello world program.
 fn main(){
     println!("Hello, world!");
@@ -56,7 +56,7 @@ fn main(){
 
 Or- in cases of multi-lined comments, you will use forward slash+star followed by the comment, another star, and another forward slash. 
 
-```
+```rust
 /* Example of multi-line comment on
 Hello World program. */
 fn main(){
@@ -75,12 +75,16 @@ Naming conventions for Rust variables are
 3. Declare type followed by =
 4. Finally, add a variable.
 ## Naming Conventions and Reserved Words
-Rust has a few catagories for their reserved words. There are words that are stictly reserved and cannot be used as varible names, then there are words where it is best practice for them not to be used but they may still be used 
+Rust has a few categories for their reserved words. Some words are strictly reserved and cannot be used as variable names, and then there are words where it is best practice for them not to be used but they may still be used 
+**Strict and in use**: as, break, const, continue, crate, else, enum, extern, false, fn, for, if, impl, in, let,loop, match, mod, move, mut, pub, ref, return, self, Self, static, struct, super, trait, true, type, try, unsafe, use, where, while
+**Strict for future use**:abstract, become, box, do, final, macro, override, '''priv''', typeof, unsized, virtual, yield
+**Weak keywords**: macro_rules, union, 'static, dyn
+
 
 ## Data Types
 ## Constants
 Rust has a nonstrict naming convention for it's variables, except Constant type variables. It is recommended that all constant type variables be named in all caps so that people know that they aren't just immutable, they can't be reinitialized to a differnet type. 
-'''r
+'''rust
 //This would result in an error.
 '''
 ### Integers
@@ -101,14 +105,14 @@ let x: u32 = 52;
 * Represents numbers with decimals (rational numbers)
 * Has single and double precision float types represented by f32 and f64.
 * The default float type is f64 which is the Double-precision float type.
-```
+```rust
 //Example of float variable syntax
 let y: f64 = 52.5;
 
 ```
 ### Character
 Rust supports more than just ASCII characters, it allows for special characters, emojis, and even characters in other languages.
-```
+```rust
 //Example of char variable syntax
 let c: char = 'c';
 
@@ -118,7 +122,7 @@ let smile: char = '😄';
 ```
 ### Booleans
 Boolean-type variables are variables that have values that are true or false. They can also be represented as integers 1, which means true, and 0, which is false. They use logic operations: && (And), || (or) , !(Not)
-```
+```rust
 //Example of Bool variable syntax 
  let t: bool = true;
 //Example of bool with operator
@@ -126,13 +130,13 @@ Boolean-type variables are variables that have values that are true or false. Th
 ```
 ### Tuples
 A data type that contains a group of values that can belong to different types. Once a fixed length is declared, it is immutable even if you try and use mut
-```
+```rust
 //Example of tuple variable syntax
 let u:(i32, f64, u64)=(52, 52.5, -18888)
 ```
 ### Arrays
 Arrays are lists containing values that are the same type. They are static but mutable; values can be updated in the array but not deleted when the size is initialized, and they can declared in many different ways.
-```
+```rust
 //Array variable syntax option#1
 let a = [1, 5, 28, 7];
 //Array variable syntax option#2
@@ -144,7 +148,7 @@ let a: [i32, 4] = [1, 5, 28, 7];
 Both int and float allow for mathematical operations;  +, -, \*, \/, \**, \%
 # If/Elses 
 Rust used if/else statements similarly to other languages, they execute a code block based on a condition. They are treated as expressions that have to return the same type. Unlike other languages, the condition does not need to be inside of the parenthesis. The condition must be a boolean because Rust will not convert non-booleans to bools.
-```
+```rust
 let w = 38
 if w>2{
     print!("{} is bigger than 2", w);
@@ -158,7 +162,7 @@ if w>2{
 * For example, if an if statement is true and it is followed by an else if statement, Rust will not bother running the else if statement even if the else if statement is also true. 
 * This is similar to how traditional short-circuiting will not check the second condition of an or statement if the first condition is correct.
 * 
-```
+```rust
 let w = 6;
 
     if w>2{
@@ -175,12 +179,12 @@ let w = 6;
 ### Loops
 *Loops are labeled with the keyword "loop", and allow for code to be repeated until it is told to stop with the use of the work break. Loops in Rust do not have to have conditions, and can instead be a block of code that will repeatedly execute until told to break. Allows nested loop. If there was a value that you want to return after the loop, add the variable after the break.
 
-```
+```rust
 
 ```
 ### While
 On the other hand, while loops have to have a conidtion within them, and run when the specific condition is met.
-```
+```rust
 ```
 #### While Let
 
@@ -193,7 +197,7 @@ On the other hand, while loops have to have a conidtion within them, and run whe
 * Represented by for n syntax, and n represents the values being iterated over
 * Uses a..b range notation, a is the start, b is where it ends
 * B is exclusive, so it will go through value up to b, but it would not include b.
-```
+```rust
 //this will print 1, 2, 3, 4, 5 will NOT print 6.
 for i in 1..6{
     println!("{}", i);
@@ -220,7 +224,7 @@ Rust supports Structs which act as objects within the language. Structs are a gr
 * Methods implement the struct and then do something with its data.
 * Then, the main calls the method sending in the specific instances of the struct.
 * Rust does not allow for multiple inheritance.
-```
+```rust
 ```
 
 ## Standard methods 
